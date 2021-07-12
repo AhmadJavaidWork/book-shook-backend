@@ -3,14 +3,14 @@ const graphql = require('graphql');
 import knex from '../../knex';
 import { BookType } from './type';
 
-const { GraphQLString, GraphQLID } = graphql;
+const { GraphQLString, GraphQLID, GraphQLNonNull } = graphql;
 
 export const addBook = {
   type: BookType,
   args: {
-    authorId: { type: GraphQLID },
-    name: { type: GraphQLString },
-    genre: { type: GraphQLString },
+    authorId: { type: new GraphQLNonNull(GraphQLID) },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    genre: { type: new GraphQLNonNull(GraphQLString) },
   },
   async resolve(parent, args) {
     const book = {

@@ -3,13 +3,13 @@ const graphql = require('graphql');
 import knex from '../../knex';
 import { AuthorType } from './type';
 
-const { GraphQLInt, GraphQLString } = graphql;
+const { GraphQLInt, GraphQLString, GraphQLNonNull } = graphql;
 
 export const addAuthor = {
   type: AuthorType,
   args: {
-    name: { type: GraphQLString },
-    age: { type: GraphQLInt },
+    name: { type: new GraphQLNonNull(GraphQLString) },
+    age: { type: new GraphQLNonNull(GraphQLInt) },
   },
   async resolve(parent, args) {
     const author = {
