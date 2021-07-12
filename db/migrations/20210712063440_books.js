@@ -5,6 +5,7 @@ exports.up = async (knex) => {
     table.foreign('authorId').references('id').inTable('authors');
     table.string('name', 255).notNullable();
     table.string('genre', 255).notNullable();
+    table.text('picture').notNullable();
     table.timestamps(false, true);
   });
   await knex.raw(`

@@ -3,6 +3,7 @@ exports.up = async (knex) => {
     table.increments('id').primary();
     table.string('name', 255).notNullable();
     table.integer('age').unsigned().notNullable();
+    table.text('picture').notNullable();
     table.timestamps(false, true);
   });
   await knex.raw(`
