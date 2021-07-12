@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const _ = require('lodash');
+import _ from 'lodash';
 
 const {
   GraphQLObjectType,
