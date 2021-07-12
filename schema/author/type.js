@@ -1,6 +1,7 @@
 const graphql = require('graphql');
 
 import { books } from './queries';
+import TimestampType from '../GraphQLTimestamp';
 
 const { GraphQLObjectType, GraphQLID, GraphQLInt, GraphQLString } = graphql;
 
@@ -11,5 +12,7 @@ export const AuthorType = new GraphQLObjectType({
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
     books,
+    created_at: { type: TimestampType },
+    updated_at: { type: TimestampType },
   }),
 });
