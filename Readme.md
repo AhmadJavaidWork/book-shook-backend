@@ -1,4 +1,4 @@
-A book records app with NodeJS, Express, GraphQL, PostgreSQl and Knex as ORM
+A book records app with NodeJS, Express, GraphQL, PostgreSQL and Knex as ORM
 
 Authors will have multiple books
 Each book will have one Author
