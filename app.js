@@ -9,4 +9,4 @@ app.use('db', knex);
 
 app.use('/graphql', graphqlHTTP({ schema, graphiql: true }));
 
-app.listen(5000, () => console.log('Server running...'));
+export default app;
