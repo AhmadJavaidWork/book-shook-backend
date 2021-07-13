@@ -2,8 +2,10 @@ const graphql = require('graphql');
 
 import { books } from './queries';
 import TimestampType from '../GraphQLTimestamp';
+import { PaginationType } from '../commonTypes';
 
-const { GraphQLObjectType, GraphQLID, GraphQLInt, GraphQLString } = graphql;
+const { GraphQLObjectType, GraphQLID, GraphQLInt, GraphQLString, GraphQLList } =
+  graphql;
 
 export const AuthorType = new GraphQLObjectType({
   name: 'Author',
@@ -16,4 +18,12 @@ export const AuthorType = new GraphQLObjectType({
     created_at: { type: TimestampType },
     updated_at: { type: TimestampType },
   }),
+});
+
+export const AuthorPageType = new GraphQLObjectType({
+  name: 'AuthorPage',
+  fields: {
+    data: { type: new GraphQLList(AuthorType) },
+    pagination: { type: PaginationType },
+  },
 });
