@@ -11,12 +11,14 @@ export const addBook = {
     authorId: { type: new GraphQLNonNull(GraphQLID) },
     name: { type: new GraphQLNonNull(GraphQLString) },
     genre: { type: new GraphQLNonNull(GraphQLString) },
+    picture: { type: new GraphQLNonNull(GraphQLString) },
   },
   async resolve(parent, args) {
     const book = {
       authorId: args.authorId,
       name: args.name,
       genre: args.genre,
+      picture: args.picture,
     };
     const newBook = await knex('books')
       .insert(book)
