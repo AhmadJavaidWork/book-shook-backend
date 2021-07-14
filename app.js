@@ -5,7 +5,7 @@ import compression from 'compression';
 import { graphqlHTTP } from 'express-graphql';
 import schema from './schema';
 import knex from './knex';
-import { env, FRONTEND_PROD_URL } from './config/environment';
+import { env, FRONTEND_PROD_URL, FRONTEND_DEV_URL } from './config/environment';
 
 const app = express();
 
@@ -23,7 +23,7 @@ if (env.production) {
     })
   );
 } else {
-  app.use(cors({ credentials: true, origin: 'http://localhost:8080' }));
+  app.use(cors({ credentials: true, origin: FRONTEND_DEV_URL }));
 }
 
 app.use('/graphql', graphqlHTTP({ schema, graphiql: true }));

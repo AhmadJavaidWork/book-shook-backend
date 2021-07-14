@@ -4,7 +4,7 @@ dotenv.config({
   path: `${process.env.PWD}/${process.env.NODE_ENV || 'development'}.env`,
 });
 
-const { PORT, FRONTEND_PROD_URL } = process.env.PORT;
+const { PORT, FRONTEND_PROD_URL, FRONTEND_DEV_URL } = process.env;
 
 // You may use this as a boolean value for different situations
 const env = {
@@ -14,4 +14,4 @@ const env = {
   production: process.env.NODE_ENV === 'production',
 };
 
-export { PORT, FRONTEND_PROD_URL, env };
+export { PORT, FRONTEND_PROD_URL, FRONTEND_DEV_URL, env };
