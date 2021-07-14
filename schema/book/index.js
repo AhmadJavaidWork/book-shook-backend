@@ -1,4 +1,4 @@
-import { BookType } from './type';
+import { BookType, BookPageType } from './type';
 import { book, books } from './queries';
 
-export { book, books, BookType };
+export { book, books, BookType, BookPageType };

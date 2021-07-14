@@ -14,6 +14,7 @@ export const AuthorType = new GraphQLObjectType({
     name: { type: GraphQLString },
     age: { type: GraphQLInt },
     picture: { type: GraphQLString },
+    bio: { type: GraphQLString },
     books,
     created_at: { type: TimestampType },
     updated_at: { type: TimestampType },

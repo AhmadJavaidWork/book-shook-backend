@@ -11,12 +11,14 @@ export const addAuthor = {
     name: { type: new GraphQLNonNull(GraphQLString) },
     age: { type: new GraphQLNonNull(GraphQLInt) },
     picture: { type: new GraphQLNonNull(GraphQLString) },
+    bio: { type: new GraphQLNonNull(GraphQLString) },
   },
   async resolve(parent, args) {
     const author = {
       name: args.name,
       age: args.age,
       picture: args.picture,
+      bio: args.bio,
     };
     const newAuthor = await knex('authors')
       .insert(author)
