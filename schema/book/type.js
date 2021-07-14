@@ -13,6 +13,7 @@ export const BookType = new GraphQLObjectType({
     name: { type: GraphQLString },
     genre: { type: GraphQLString },
     picture: { type: GraphQLString },
+    description: { type: GraphQLString },
     author,
     created_at: { type: TimestampType },
     updated_at: { type: TimestampType },

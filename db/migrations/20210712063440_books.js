@@ -6,6 +6,7 @@ exports.up = async (knex) => {
     table.string('name', 255).notNullable();
     table.string('genre', 255).notNullable();
     table.text('picture').notNullable();
+    table.text('description').notNullable();
     table.timestamps(false, true);
   });
   await knex.raw(`
