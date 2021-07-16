@@ -10,7 +10,6 @@ import { user, users } from './user/queries';
 // Mutations
 import { addAuthor } from './author/mutations';
 import { addBook } from './book/mutations';
-import { register } from './user/mutations';
 
 // Types
 import { AuthorType } from './author';
@@ -35,7 +34,6 @@ const mutation = new GraphQLObjectType({
   fields: {
     addAuthor,
     addBook,
-    register,
   },
 });
 
