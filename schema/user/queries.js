@@ -1,23 +1,22 @@
 const graphql = require('graphql');
 
 import knex from '../../knex';
-import { AuthorType } from '../author';
-import { BookType, BookPageType } from './type';
+import { UserType, UserPageType } from './type';
 
 const { GraphQLID, GraphQLInt, GraphQLNonNull } = graphql;
 
-export const book = {
-  type: BookType,
-  args: { id: { type: new GraphQLNonNull(GraphQLID) } },
+export const user = {
+  type: UserType,
+  args: { id: { type: GraphQLID } },
   resolve: (parent, args) => {
-    return knex('books')
+    return knex('users')
       .where({ id: args.id })
-      .then((book) => book[0]);
+      .then((user) => user[0]);
   },
 };
 
-export const books = {
-  type: BookPageType,
+export const users = {
+  type: UserPageType,
   args: {
     perPage: { type: new GraphQLNonNull(GraphQLInt) },
     currentPage: { type: new GraphQLNonNull(GraphQLInt) },
@@ -26,19 +25,10 @@ export const books = {
   },
   resolve: (parent, args) => {
     const { perPage, currentPage, from, to } = args;
-    return knex('books').paginate({
+    return knex('users').paginate({
       perPage,
       currentPage,
       isLengthAware: true,
     });
-  },
-};
-
-export const author = {
-  type: AuthorType,
-  resolve: (parent, args) => {
-    return knex('authors')
-      .where({ id: parent.authorId })
-      .then((author) => author[0]);
   },
 };

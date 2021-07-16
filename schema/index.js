@@ -5,10 +5,12 @@ import knex from '../knex';
 // Queries
 import { book, books } from './book/queries';
 import { author, authors } from './author/queries';
+import { user, users } from './user/queries';
 
 // Mutations
 import { addAuthor } from './author/mutations';
 import { addBook } from './book/mutations';
+import { register } from './user/mutations';
 
 // Types
 import { AuthorType } from './author';
@@ -23,6 +25,8 @@ const query = new GraphQLObjectType({
     books,
     author,
     authors,
+    user,
+    users,
   },
 });
 
@@ -31,6 +35,7 @@ const mutation = new GraphQLObjectType({
   fields: {
     addAuthor,
     addBook,
+    register,
   },
 });
 

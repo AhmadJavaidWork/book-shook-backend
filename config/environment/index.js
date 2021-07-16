@@ -4,8 +4,8 @@ dotenv.config({
   path: `${process.env.PWD}/${process.env.NODE_ENV || 'development'}.env`,
 });
 
-const { PORT, FRONTEND_URL, NODE_ENV } = process.env;
+const { PORT, FRONTEND_URL, NODE_ENV, JWT_SECRET, MASTER_KEY } = process.env;
 
 // You may use this as a boolean value for different situations
 
-export { PORT, FRONTEND_URL, NODE_ENV };
+export { PORT, FRONTEND_URL, NODE_ENV, JWT_SECRET, MASTER_KEY };
